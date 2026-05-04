@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <PackageId>FlyGon.Notifications</PackageId>
-    <Version>1.1.2</Version>
+    <Version>2.0.0</Version>
     <Authors>João Greco</Authors>
-    <Company>grecojoao</Company>
+    <Company>Greco Labs</Company>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <AssemblyVersion>1.1.2.0</AssemblyVersion>
-    <FileVersion>1.1.2.0</FileVersion>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
     <RepositoryUrl>https://github.com/grecojoao/FlyGon.Notifications</RepositoryUrl>
     <Description>Easily use the Domain Notification design pattern and the Validation design pattern.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -16,16 +16,16 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/grecojoao/FlyGon.Notifications</PackageProjectUrl>
     <PackageTags>Domain;DDD;Notification;Validation;FlyGon;FlyGon.Notifications</PackageTags>
-    <PackageReleaseNotes>Added documentation.</PackageReleaseNotes>
+    <PackageReleaseNotes>Updated to .NET 10.0 with latest dependencies.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>obj\Debug\netstandard2.1\FlyGon.Notifications.xml</DocumentationFile>
+    <DocumentationFile>obj\Debug\net10.0\FlyGon.Notifications.xml</DocumentationFile>
     <OutputPath></OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>obj\Release\netstandard2.1\FlyGon.Notifications.xml</DocumentationFile>
+    <DocumentationFile>obj\Release\net10.0\FlyGon.Notifications.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>

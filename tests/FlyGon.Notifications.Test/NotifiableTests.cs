@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 
 namespace FlyGon.Notifications.Test
 {
@@ -9,8 +9,8 @@ namespace FlyGon.Notifications.Test
         public void AddNotifications()
         {
             var customer = new Customer();
-            Assert.True(customer.IsInvalid);
-            Assert.AreEqual(2, customer.Notifications.Count);
+            Assert.That(customer.IsInvalid, Is.True);
+            Assert.That(customer.Notifications.Count, Is.EqualTo(2));
         }
 
         [Test]
@@ -19,8 +19,8 @@ namespace FlyGon.Notifications.Test
         {
             var customer = new Customer();
             customer.Clear();
-            Assert.True(customer.IsValid);
-            Assert.AreEqual(0, customer.Notifications.Count);
+            Assert.That(customer.IsValid, Is.True);
+            Assert.That(customer.Notifications.Count, Is.EqualTo(0));
         }
     }
 

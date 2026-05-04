@@ -1,4 +1,4 @@
-﻿using FlyGon.Notifications.Validations;
+using FlyGon.Notifications.Validations;
 using NUnit.Framework;
 
 namespace FlyGon.Notifications.Test.Validations
@@ -14,13 +14,13 @@ namespace FlyGon.Notifications.Test.Validations
         {
             var wrong = new ValidationContract()
                 .IsUrl("invalidurl", Property, Message);
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(1, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(1));
 
             var right = new ValidationContract()
                 .IsUrl("https://gmail.com", Property, Message)
                 .IsUrl("http://gmail.com", Property, Message);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -29,7 +29,7 @@ namespace FlyGon.Notifications.Test.Validations
         {
             var right = new ValidationContract()
                 .IsUrlOrEmpty("", Property, Message);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
     }
 }

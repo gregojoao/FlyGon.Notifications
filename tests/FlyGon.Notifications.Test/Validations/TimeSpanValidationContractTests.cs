@@ -1,4 +1,4 @@
-﻿using FlyGon.Notifications.Validations;
+using FlyGon.Notifications.Validations;
 using NUnit.Framework;
 using System;
 
@@ -19,15 +19,15 @@ namespace FlyGon.Notifications.Test.Validations
                 .IsGreaterThan(_timeSpan, _timeSpan.Add(TimeSpan.FromMilliseconds(10)), Property, message)
                 .IsGreaterThan(_timeSpan, _timeSpan.Add(TimeSpan.FromSeconds(10)), Property, message)
                 .IsGreaterThan(_timeSpan, _timeSpan.Add(TimeSpan.FromMinutes(10)), Property, message);
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(3, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(3));
 
             message = "TimeSpan 1 is not greater than TimeSpan 2";
             var right = new ValidationContract()
                 .IsGreaterThan(_timeSpan, _timeSpan.Add(TimeSpan.FromMilliseconds(-10)), Property, message)
                 .IsGreaterThan(_timeSpan, _timeSpan.Add(TimeSpan.FromSeconds(-10)), Property, message)
                 .IsGreaterThan(_timeSpan, _timeSpan.Add(TimeSpan.FromMinutes(-10)), Property, message);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -40,8 +40,8 @@ namespace FlyGon.Notifications.Test.Validations
                 .IsGreaterOrEqualsThan(_timeSpan, _timeSpan.Add(TimeSpan.FromMilliseconds(10)), Property, message)
                 .IsGreaterOrEqualsThan(_timeSpan, _timeSpan.Add(TimeSpan.FromSeconds(10)), Property, message)
                 .IsGreaterOrEqualsThan(_timeSpan, _timeSpan.Add(TimeSpan.FromMinutes(10)), Property, message);
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(3, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(3));
 
             message = "TimeSpan 1 is not greater or equals than TimeSpan 2";
             var right = new ValidationContract()
@@ -49,7 +49,7 @@ namespace FlyGon.Notifications.Test.Validations
                 .IsGreaterOrEqualsThan(_timeSpan, _timeSpan.Add(TimeSpan.FromSeconds(-10)), Property, message)
                 .IsGreaterOrEqualsThan(_timeSpan, _timeSpan.Add(TimeSpan.FromMinutes(-10)), Property, message)
                 .IsGreaterOrEqualsThan(_timeSpan, _timeSpan, Property, message);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -62,15 +62,15 @@ namespace FlyGon.Notifications.Test.Validations
                 .IsLowerThan(_timeSpan, _timeSpan.Add(TimeSpan.FromMilliseconds(-10)), Property, message)
                 .IsLowerThan(_timeSpan, _timeSpan.Add(TimeSpan.FromSeconds(-10)), Property, message)
                 .IsLowerThan(_timeSpan, _timeSpan.Add(TimeSpan.FromMinutes(-10)), Property, message);
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(3, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(3));
 
             message = "TimeSpan 1 is not lower than TimeSpan 2";
             var right = new ValidationContract()
                 .IsLowerThan(_timeSpan, _timeSpan.Add(TimeSpan.FromMilliseconds(10)), Property, message)
                 .IsLowerThan(_timeSpan, _timeSpan.Add(TimeSpan.FromSeconds(10)), Property, message)
                 .IsLowerThan(_timeSpan, _timeSpan.Add(TimeSpan.FromMinutes(10)), Property, message);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -83,8 +83,8 @@ namespace FlyGon.Notifications.Test.Validations
                 .IsLowerOrEqualsThan(_timeSpan, _timeSpan.Add(TimeSpan.FromMilliseconds(-10)), Property, message)
                 .IsLowerOrEqualsThan(_timeSpan, _timeSpan.Add(TimeSpan.FromSeconds(-10)), Property, message)
                 .IsLowerOrEqualsThan(_timeSpan, _timeSpan.Add(TimeSpan.FromMinutes(-10)), Property, message);
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(3, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(3));
 
             message = "TimeSpan 1 is not lower or equals than TimeSpan 2";
             var right = new ValidationContract()
@@ -92,7 +92,7 @@ namespace FlyGon.Notifications.Test.Validations
                 .IsLowerOrEqualsThan(_timeSpan, _timeSpan.Add(TimeSpan.FromSeconds(10)), Property, message)
                 .IsLowerOrEqualsThan(_timeSpan, _timeSpan.Add(TimeSpan.FromMinutes(10)), Property, message)
                 .IsLowerOrEqualsThan(_timeSpan, _timeSpan, Property, message);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -104,13 +104,13 @@ namespace FlyGon.Notifications.Test.Validations
             var end = new TimeSpan(0, 23, 59, 0);
             var wrong = new ValidationContract()
                 .IsBetween(_timeSpan, start, end, Property, "TimeSpan should be between start and end");
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(1, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(1));
 
             start = new TimeSpan(0, 23, 0, 0);
             var right = new ValidationContract()
                 .IsBetween(_timeSpan, start, end, Property, "TimeSpan should be between start and end");
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
     }
 }

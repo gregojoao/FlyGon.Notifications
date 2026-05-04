@@ -15,13 +15,13 @@ namespace FlyGon.Notifications.Test.Validations
             object obj = 10;
             var wrong = new ValidationContract()
                 .IsNull(obj, PropertyName, message);
-            Assert.IsTrue(wrong.IsInvalid);
-            Assert.AreEqual(1, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(1));
 
             obj = null;
             var right = new ValidationContract()
                 .IsNull(obj, PropertyName, message);
-            Assert.IsTrue(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -32,13 +32,13 @@ namespace FlyGon.Notifications.Test.Validations
             object obj = null;
             var wrong = new ValidationContract()
                 .IsNotNull(obj, PropertyName, message);
-            Assert.IsTrue(wrong.IsInvalid);
-            Assert.AreEqual(1, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(1));
 
             obj = 10;
             var right = new ValidationContract()
                 .IsNotNull(obj, PropertyName, message);
-            Assert.IsTrue(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -51,14 +51,14 @@ namespace FlyGon.Notifications.Test.Validations
             var wrong = new ValidationContract()
                 .AreEquals(obj, obj1, PropertyName, message)
                 .AreEquals(20.10, "string", PropertyName, message);
-            Assert.IsTrue(wrong.IsInvalid);
-            Assert.AreEqual(2, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(2));
 
             obj = 20.10;
             obj1 = 20.10;
             var right = new ValidationContract()
                 .AreEquals(obj, obj1, PropertyName, message);
-            Assert.IsTrue(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -70,14 +70,14 @@ namespace FlyGon.Notifications.Test.Validations
             object obj1 = 10;
             var wrong = new ValidationContract()
                 .AreNotEquals(obj, obj1, PropertyName, message);
-            Assert.IsTrue(wrong.IsInvalid);
-            Assert.AreEqual(1, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(1));
 
             obj = 10.5;
             obj1 = "string";
             var right = new ValidationContract()
                 .AreNotEquals(obj, obj1, PropertyName, message);
-            Assert.IsTrue(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
     }
 }
