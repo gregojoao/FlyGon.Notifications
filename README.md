@@ -204,7 +204,7 @@ Company: Greco Labs
 
 ## Repository
 
-[https://github.com/grecojoao/FlyGon.Notifications](https://github.com/grecojoao/FlyGon.Notifications)
+[https://github.com/gregojoao/FlyGon.Notifications](https://github.com/gregojoao/FlyGon.Notifications)
 
 ## Changelog
 
@@ -221,4 +221,4 @@ Company: Greco Labs
 
 ## Support
 
-If you encounter any issues or have questions, please [open an issue](https://github.com/grecojoao/FlyGon.Notifications/issues) on GitHub.
+If you encounter any issues or have questions, please [open an issue](https://github.com/gregojoao/FlyGon.Notifications/issues) on GitHub.
