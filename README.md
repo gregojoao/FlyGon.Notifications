@@ -1,6 +1,8 @@
 # FlyGon.Notifications
 
 [![NuGet](https://img.shields.io/nuget/v/FlyGon.Notifications.svg)](https://www.nuget.org/packages/FlyGon.Notifications/)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/FlyGon.Notifications.svg)](https://www.nuget.org/packages/FlyGon.Notifications/)
+[![Build and Test](https://github.com/gregojoao/FlyGon.Notifications/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/gregojoao/FlyGon.Notifications/actions/workflows/build-and-test.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A lightweight and powerful .NET library for implementing Domain Notification and Validation design patterns in your applications.
@@ -189,9 +191,36 @@ If you're upgrading from version 1.x to 2.0:
 - **API Compatibility**: All public APIs remain backward compatible
 - **Dependencies**: All NuGet packages updated to latest stable versions
 
+## Changelog
+
+### Version 2.0.0
+- ✨ Updated to .NET 10.0
+- ⬆️ Updated all dependencies to latest versions
+- ✅ All 249 unit tests passing
+- 📝 Improved documentation
+- 🏢 Company name updated to Greco Labs
+- 🔄 Repository URLs updated
+- 🤖 Added GitHub Actions for CI/CD
+
+### Version 1.1.2
+- 📝 Added documentation
+- 🐛 Bug fixes and improvements
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+### Development Setup
+
+1. Clone the repository
+2. Install .NET 10 SDK
+3. Run `dotnet restore`
+4. Run `dotnet build`
+5. Run `dotnet test`
+
+### Publishing a New Version
+
+See [.github/RELEASE.md](.github/RELEASE.md) for detailed instructions on how to publish a new version to NuGet.
 
 ## License
 
