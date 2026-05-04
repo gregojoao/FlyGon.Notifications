@@ -1,4 +1,4 @@
-﻿using FlyGon.Notifications.Validations;
+using FlyGon.Notifications.Validations;
 using NUnit.Framework;
 
 namespace FlyGon.Notifications.Test.Validations
@@ -57,8 +57,8 @@ namespace FlyGon.Notifications.Test.Validations
         {
             var wrong = new ValidationContract()
                 .IsPhone(phone, PropertyName, MessagePhone);
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(1, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(1));
         }
 
         [Test]
@@ -126,7 +126,7 @@ namespace FlyGon.Notifications.Test.Validations
         {
             var right = new ValidationContract()
                 .IsPhone(phone, PropertyName, MessagePhone);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
         
         [Test]
@@ -139,7 +139,7 @@ namespace FlyGon.Notifications.Test.Validations
         {
             var right = new ValidationContract()
                 .IsPhoneOrEmpty(phone, PropertyName, MessagePhone);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -189,8 +189,8 @@ namespace FlyGon.Notifications.Test.Validations
         {
             var wrong = new ValidationContract()
                 .IsPhone(phone, format, PropertyName, MessagePhone);
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(1, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(1));
         }
 
         [Test]
@@ -241,7 +241,7 @@ namespace FlyGon.Notifications.Test.Validations
         {
             var right = new ValidationContract()
                 .IsPhone(phone, format, PropertyName, MessagePhone);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
         
         [Test]
@@ -254,7 +254,7 @@ namespace FlyGon.Notifications.Test.Validations
         {
             var right = new ValidationContract()
                 .IsPhoneOrEmpty(phone, format, PropertyName, MessagePhone);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -267,8 +267,8 @@ namespace FlyGon.Notifications.Test.Validations
         {
             var wrong = new ValidationContract()
                 .IsCellPhone(cellphone, PropertyName, MessageCellphone);
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(1, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(1));
         }
 
         [Test]
@@ -282,7 +282,7 @@ namespace FlyGon.Notifications.Test.Validations
         {
             var right = new ValidationContract()
                 .IsCellPhone(cellphone, PropertyName, MessageCellphone);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
         
         [Test]
@@ -295,7 +295,7 @@ namespace FlyGon.Notifications.Test.Validations
         {
             var right = new ValidationContract()
                 .IsCellPhoneOrEmpty(cellphone, PropertyName, MessageCellphone);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -311,8 +311,8 @@ namespace FlyGon.Notifications.Test.Validations
         {
             var wrong = new ValidationContract()
                 .IsNewFormatCellPhone(cellphone, PropertyName, MessageCellphone);
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(1, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(1));
         }
 
         [Test]
@@ -326,7 +326,7 @@ namespace FlyGon.Notifications.Test.Validations
         {
             var right = new ValidationContract()
                 .IsNewFormatCellPhone(cellphone, PropertyName, MessageCellphone);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -339,7 +339,7 @@ namespace FlyGon.Notifications.Test.Validations
         {
             var right = new ValidationContract()
                 .IsNewFormatCellPhoneOrEmpty(cellphone, PropertyName, MessageCellphone);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
     }
 }

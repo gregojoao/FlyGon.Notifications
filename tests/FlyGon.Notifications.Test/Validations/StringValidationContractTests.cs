@@ -15,12 +15,12 @@ namespace FlyGon.Notifications.Test.Validations
             var wrong = new ValidationContract()
                 .IsNotNullOrEmpty(null, PropertyName, message)
                 .IsNotNullOrEmpty("", PropertyName, message);
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(2, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(2));
 
             var right = new ValidationContract()
                 .IsNotNullOrEmpty("Some valid string", PropertyName, message);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -31,12 +31,12 @@ namespace FlyGon.Notifications.Test.Validations
             var wrong = new ValidationContract()
                 .IsNotNullOrWhiteSpace(null, PropertyName, message)
                 .IsNotNullOrWhiteSpace("     ", PropertyName, message);
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(2, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(2));
 
             var right = new ValidationContract()
                 .IsNotNullOrWhiteSpace("Some valid string", PropertyName, message);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -46,13 +46,13 @@ namespace FlyGon.Notifications.Test.Validations
             var message = "String is Null Or Empty";
             var wrong = new ValidationContract()
                 .IsNullOrEmpty("Some valid string", PropertyName, message);
-            Assert.True(wrong.IsInvalid);
+            Assert.That(wrong.IsInvalid, Is.True);
 
             var right = new ValidationContract()
                 .IsNullOrEmpty(null, PropertyName, message)
                 .IsNullOrEmpty("", PropertyName, message);
-            Assert.True(right.IsValid);
-            Assert.AreEqual(0, right.Notifications.Count);
+            Assert.That(right.IsValid, Is.True);
+            Assert.That(right.Notifications.Count, Is.EqualTo(0));
         }
 
         [Test]
@@ -62,12 +62,12 @@ namespace FlyGon.Notifications.Test.Validations
             var message = "String len is less than permited";
             var wrong = new ValidationContract()
                 .HasMinLen("null", 5, PropertyName, message);
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(1, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(1));
 
             var right = new ValidationContract()
                 .HasMinLen("Some Valid String", 5, PropertyName, message);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -77,12 +77,12 @@ namespace FlyGon.Notifications.Test.Validations
             var message = "String len is more than permited";
             var wrong = new ValidationContract()
                 .HasMaxLen("null", 3, PropertyName, message);
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(1, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(1));
 
             var right = new ValidationContract()
                 .HasMaxLen("Some", 5, PropertyName, message);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -92,12 +92,12 @@ namespace FlyGon.Notifications.Test.Validations
             var message = "String len is less than permited";
             var wrong = new ValidationContract()
                 .HasLen("null", 3, PropertyName, message);
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(1, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(1));
 
             var right = new ValidationContract()
                 .HasLen("Some1", 5, PropertyName, message);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -107,12 +107,12 @@ namespace FlyGon.Notifications.Test.Validations
             var message = "String does not contains banana";
             var wrong = new ValidationContract()
                 .Contains("some text here", "banana", PropertyName, message);
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(1, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(1));
 
             var right = new ValidationContract()
                 .Contains("some banana here", "banana", PropertyName, message);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -123,13 +123,13 @@ namespace FlyGon.Notifications.Test.Validations
             var wrong = new ValidationContract()
                 .Matchs("invalidurl", @"^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$",
                 PropertyName, message);
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(1, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(1));
 
             var right = new ValidationContract()
                 .Matchs("http://gmail.com", @"^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$",
                 PropertyName, message);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -139,12 +139,12 @@ namespace FlyGon.Notifications.Test.Validations
             var message = "String must have digits only";
             var wrong = new ValidationContract()
                 .IsDigit("asdfa989798", PropertyName, message);
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(1, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(1));
 
             var right = new ValidationContract()
                 .IsDigit("1234567890", PropertyName, message);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -155,15 +155,15 @@ namespace FlyGon.Notifications.Test.Validations
             var wrong = new ValidationContract()
                 .HasMinLenOrIsNullOrEmpty("123456789", 10, PropertyName, message)
                 .HasMinLenOrIsNullOrEmpty("         ", 10, PropertyName, message);
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(2, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(2));
 
             var right = new ValidationContract()
                 .HasMinLenOrIsNullOrEmpty(null, 10, PropertyName, message)
                 .HasMinLenOrIsNullOrEmpty("", 10, PropertyName, message)
                 .HasMinLenOrIsNullOrEmpty("1234567890", 10, PropertyName, message)
                 .HasMinLenOrIsNullOrEmpty("123456789012345", 10, PropertyName, message);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -174,15 +174,15 @@ namespace FlyGon.Notifications.Test.Validations
             var wrong = new ValidationContract()
                 .HasMaxLenOrIsNullOrEmpty("123456789012345", 10, PropertyName, message)
                 .HasMaxLenOrIsNullOrEmpty("               ", 10, PropertyName, message);
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(2, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(2));
 
             var right = new ValidationContract()
                 .HasMaxLenOrIsNullOrEmpty(null, 10, PropertyName, message)
                 .HasMaxLenOrIsNullOrEmpty("", 10, PropertyName, message)
                 .HasMaxLenOrIsNullOrEmpty("12345", 10, PropertyName, message)
                 .HasMaxLenOrIsNullOrEmpty("1234567890", 10, PropertyName, message);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -193,14 +193,14 @@ namespace FlyGon.Notifications.Test.Validations
             var wrong = new ValidationContract()
                 .HasLenOrIsNullOrEmpty("123456789", 10, PropertyName, message)
                 .HasLenOrIsNullOrEmpty("12345678901", 10, PropertyName, message);
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(2, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(2));
 
             var right = new ValidationContract()
                 .HasLenOrIsNullOrEmpty(null, 10, PropertyName, message)
                 .HasLenOrIsNullOrEmpty("", 10, PropertyName, message)
                 .HasLenOrIsNullOrEmpty("1234567890", 10, PropertyName, message);
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -212,12 +212,12 @@ namespace FlyGon.Notifications.Test.Validations
                 .AreEquals(null, "String not equals", PropertyName, message)
                 .AreEquals("", "String not equals", PropertyName, message)
                 .AreEquals("String almost equals", "String almolst equals", PropertyName, message);
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(3, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(3));
 
             var right = new ValidationContract()
                 .AreEquals("Some valid string", "Some valid string", PropertyName, "String are equals");
-            Assert.True(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
 
         [Test]
@@ -226,15 +226,15 @@ namespace FlyGon.Notifications.Test.Validations
         {
             var wrong = new ValidationContract()
                 .AreNotEquals("Some valid string", "Some valid string", PropertyName, "String are equals");
-            Assert.True(wrong.IsInvalid);
-            Assert.AreEqual(1, wrong.Notifications.Count);
+            Assert.That(wrong.IsInvalid, Is.True);
+            Assert.That(wrong.Notifications.Count, Is.EqualTo(1));
 
             var message = "String are not equals";
             var right = new ValidationContract()
                 .AreNotEquals(null, "String not equals", PropertyName, message)
                 .AreNotEquals("", "String not equals", PropertyName, message)
                 .AreNotEquals("String almost equals", "String almolst equals", PropertyName, message);
-            Assert.IsTrue(right.IsValid);
+            Assert.That(right.IsValid, Is.True);
         }
     }
 }
